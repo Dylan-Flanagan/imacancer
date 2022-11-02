@@ -11,4 +11,15 @@ describe('signs routes', () => {
     });
     expect(res.body).toEqual(expected);
   });
+
+  it('/zodiac/:id should return zodiac sign details', async () => {
+    const res = await request(app).get('/zodiac/3');
+    const cancer = {
+      id: '3',
+      name: 'cancer',
+      dates: 'Jun 21 - Jul 22',
+      symbol: 'Crab',
+    };
+    expect(res.body).toEqual(cancer);
+  });
 });
