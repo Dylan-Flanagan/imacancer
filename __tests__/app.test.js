@@ -23,3 +23,15 @@ describe('signs routes', () => {
     expect(res.body).toEqual(cancer);
   });
 });
+
+describe('horoSigns routes', () => {
+  it('/horoscopes/:sign should return horoscope by sign', async () => {
+    const res = await request(app).get('/horoscopes/gemini');
+    const gemini = {
+      id: '5',
+      sign: 'gemini',
+      horoscope: 'cry about it',
+    };
+    expect(res.body).toEqual(gemini.horoscope);
+  });
+});
